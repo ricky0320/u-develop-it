@@ -6,6 +6,7 @@ const mysql = require('mysql2');
 //Express middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
 // Connect to database
 const db = mysql.createConnection(
   {
@@ -19,24 +20,9 @@ const db = mysql.createConnection(
   console.log('Connected to the election database.')
 );
 
-// GET a single candidate
-// db.query(`SELECT * FROM candidates WHERE id = 1`, (err, row) => {
-//   if (err) {
-//     console.log(err);
-//   }
-//   console.log(row);
-// });
 
-//Create a candidate
-// const sql = `INSERT INTO candidates (id, first_name, last_name, industry_connected) 
-// VALUES (?,?,?,?)`;
-// const params = [1, 'Ronald', 'Firbank', 1];
-
-// db.query(sql, params, (err, result) => {
-// if (err) {
-// console.log(err);
-// }
-// console.log(result);
+// db.query(`SELECT * FROM candidates`, (err, rows) => {
+//   console.log(rows);
 // });
 
 // // Delete a candidate
@@ -47,8 +33,16 @@ const db = mysql.createConnection(
 //   console.log(result);
 // });
 
-// db.query(`SELECT * FROM candidates`, (err, rows) => {
-//   console.log(rows);
+// // Create a candidate
+// const sql = `INSERT INTO candidates (id, first_name, last_name, industry_connected) 
+//               VALUES (?,?,?,?)`;
+// const params = [1, 'Ronald', 'Firbank', 1];
+
+// db.query(sql, params, (err, result) => {
+//   if (err) {
+//     console.log(err);
+//   }
+//   console.log(result);
 // });
 
 //Default response for any other request (Not Found)
